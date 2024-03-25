@@ -1,0 +1,83 @@
+/* 
+You live in the city of Cartesia where all roads are laid out in a perfect grid.
+You arrived ten minutes too early to an appointment, so you decided to take the 
+opportunity to go for a short walk. The city provides its citizens with a Walk 
+Generating App on their phones -- everytime you press the button it sends you 
+an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). 
+You always walk only a single block for each letter (direction) and you know it 
+takes you one minute to traverse one city block, so create a function that will 
+return true if the walk the app gives you will take you exactly ten minutes 
+(you don't want to be early or late!) and will, of course, return you to your 
+starting point. Return false otherwise.
+
+Note: you will always receive a valid array containing a random assortment 
+of direction letters ('n', 's', 'e', or 'w' only). It will never give you 
+an empty array (that's not a walk, that's standing still!).
+*/
+
+// class Position {
+//     constructor(x, y) {
+//         this.x = x;
+//         this.y = y;
+//     };
+
+//     isEqual(otherPosition) {
+//         if (otherPosition.x === this.x && otherPosition.y === this.y) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     };
+
+//     addPosition(otherPosition) {
+//         this.x += otherPosition.x;
+//         this.y += otherPosition.y;
+//     }
+// }
+
+function isValidWalk(walk) {
+    const startingPosition = {
+        x: 0,
+        y: 0
+    };
+
+    let movementPosition = {
+        x: 0,
+        y: 0
+    };
+
+    if (walk.length > 10 || walk.length < 10) {
+        return false;
+    }
+
+    for (let dir of walk) {
+        switch (dir) {
+            case 'n':
+                movementPosition.y += 1;
+                break;
+            
+            case 's':
+                movementPosition.y -= 1;
+                break;
+        
+            case 'w':
+                movementPosition.x -= 1;
+                break;
+            
+            case 'e':
+                movementPosition.x += 1;
+                break;
+            
+            default:
+                console.log("THATS NOT A DIRECTION!");
+        }
+    }
+
+    if (startingPosition.x == movementPosition.x &&
+        startingPosition.y == movementPosition.y) {
+            return true;
+        }
+    else {
+        return false;
+    }
+}
