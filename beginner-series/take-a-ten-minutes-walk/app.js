@@ -14,27 +14,6 @@ Note: you will always receive a valid array containing a random assortment
 of direction letters ('n', 's', 'e', or 'w' only). It will never give you 
 an empty array (that's not a walk, that's standing still!).
 */
-
-// class Position {
-//     constructor(x, y) {
-//         this.x = x;
-//         this.y = y;
-//     };
-
-//     isEqual(otherPosition) {
-//         if (otherPosition.x === this.x && otherPosition.y === this.y) {
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     };
-
-//     addPosition(otherPosition) {
-//         this.x += otherPosition.x;
-//         this.y += otherPosition.y;
-//     }
-// }
-
 function isValidWalk(walk) {
     const startingPosition = {
         x: 0,
